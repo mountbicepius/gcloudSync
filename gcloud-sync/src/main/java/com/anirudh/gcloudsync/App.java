@@ -35,7 +35,7 @@ public class App extends Application
         Scene scene = new Scene(new StackPane(l), 640, 480);
         stage.setScene(scene);
         stage.show();
-		Form loginForm = Form.of(
+		/*Form loginForm = Form.of(
 		        Group.of(
 		                Field.ofStringType(model.usernameProperty())
 		                        .label("Username"),
@@ -44,7 +44,7 @@ public class App extends Application
 		                        .required("This field can’t be empty")
 		        )
 		).title("Login");
-    }
+  }*/
 
     public static void main(String[] args) {
 		launch();
