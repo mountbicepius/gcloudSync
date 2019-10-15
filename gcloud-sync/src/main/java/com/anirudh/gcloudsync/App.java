@@ -35,21 +35,23 @@ public class App extends Application
         Scene scene = new Scene(new StackPane(l), 640, 480);
         stage.setScene(scene);
         stage.show();
+
+        private ResourceBundle rbDE = ResourceBundle.getBundle("demo.demo-locale", new Locale("de", "CH"));
+        private ResourceBundle rbEN = ResourceBundle.getBundle("demo.demo-locale", new Locale("en", "UK"));
+        private ResourceBundleService rbs = new ResourceBundleService(rbEN);
+
         Form loginForm = Form.of(
 		        Group.of(
 		                Field.ofStringType(model.usernameProperty())
 		                        .label("Username"),
 		                Field.ofStringType(model.passwordProperty())
 		                        .label("Password")
-		                        .required("This field can’t be empty")
-		        )
-		).title("Login");
-  }
+		                        .required("This field can’t be empty"))).title("Login");
+        Pane root = new Pane();
+        root.getChildren().add(new FormRenderer(loginForm));
 
-    public static void main(String[] args) {
-		launch();
-	}
-			/*// Instantiates a client
+			/*
+      // Instantiates a client
 		    Storage storage = StorageOptions.getDefaultInstance().getService();
 
 		    // The name for the new bucket
@@ -57,4 +59,8 @@ public class App extends Application
 
 		    // Creates the new bucket
 		    Bucket bucket = storage.create(BucketInfo.of(bucketName));*/
+        }
+        public static void main(String[] args) {
+          launch();
+        }
 }
